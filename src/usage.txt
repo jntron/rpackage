@@ -1,0 +1,18 @@
+cargo build --bin generate
+generate /path/to/directory/
+cp out.blob src/
+cargo build --bin rpackage
+rpackage
+
+
+
+rpackage now contains the entire directory structure of the directory you generated, and executes startup.sh from that directory, duplicated inside of the binary.
+Only regular files and subdirectories are supported, having links or other filetypes in the main directory is a bad idea.
+
+
+Requirements:
+FUSE in kernel
+The program fusermount
+
+TODO:
+Compression
